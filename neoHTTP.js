@@ -30,7 +30,6 @@ export class HttpRequest{
             let opt = { // Can modify if need be
                 method: "POST",
                 body: JSON.stringify(data)
-
             }
             const response = await fetch(url, opt);
             const result = await response.json();
@@ -45,7 +44,6 @@ export class HttpRequest{
 
     Put(url, data) {
         return new Promise(async (resolve, reject) => {
-            console.log(data);
             let opt = { // Can modify if need be
                 method: "PUT",
                 body: JSON.stringify(data)
@@ -79,6 +77,23 @@ export class HttpRequest{
     }
 
 
+
+    Patch(url, data) {
+        return new Promise(async (resolve, reject) => {
+            let opt = { // Can modify if need be
+                method: "PATCH",
+                body: JSON.stringify(data)
+            }
+            const response = await fetch(url, opt);
+            const result = await response.json();
+            if(response.ok){
+                console.log(result);
+                resolve(JSON.stringify(result));
+            } else {    
+                reject(`Get Error:  ${response.status}: ${response}`);
+            }
+        })
+    }
 
 
 

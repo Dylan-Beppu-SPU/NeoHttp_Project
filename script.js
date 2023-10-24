@@ -1,11 +1,7 @@
-// import { HttpRequest } from "./neoHTTP";
-
 import { HttpRequest } from "./neoHTTP.js";
 
-// import { HttpRequest } from "./neoHTTP";
-
 // Instantiate the object
-const http = new coreHTTP;
+// const http = new coreHTTP;
 const NeoHttp = new HttpRequest;
 
 function ProcessGet(err, res) {
@@ -103,7 +99,14 @@ function sendRequest(reqType, targetURL) {
       NeoHttp.Delete(targetURL)
       .then((resp) => ProcessDelete(null,resp))
       .catch((err) => ProcessDelete(err))
-      break;            
+      break;
+    case "patch": // Patch user in the placeholder website
+      data = {id: 1,
+              name:"Professor Vickers"};
+      NeoHttp.Patch(targetURL, data)
+      .then((resp) => ProcessPut(null,resp))
+      .catch((err) => ProcessPut(err));
+      break;
   }
 }
 
