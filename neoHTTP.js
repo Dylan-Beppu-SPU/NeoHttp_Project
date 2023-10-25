@@ -13,6 +13,7 @@ export class HttpRequest{
             }
             const response = await fetch(url, opt);
             const result = await response.json();
+            console.log(result);
             if(response.ok){
                 resolve(JSON.stringify(result));
             } else {    
@@ -94,8 +95,5 @@ export class HttpRequest{
             }
         })
     }
-
-
-
 
 }

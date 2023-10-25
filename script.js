@@ -102,7 +102,8 @@ function sendRequest(reqType, targetURL) {
       break;
     case "patch": // Patch user in the placeholder website
       data = {id: 1,
-              name:"Professor Vickers"};
+              name:"Professor Vickers"
+      };
       NeoHttp.Patch(targetURL, data)
       .then((resp) => ProcessPut(null,resp))
       .catch((err) => ProcessPut(err));
@@ -125,4 +126,5 @@ document.querySelector("#SendReq").addEventListener("click", (e) => {
 
   e.preventDefault();
 });
+
 
