@@ -6,7 +6,6 @@ const NeoHttp = new HttpRequest;
 
 function ProcessGet(err, res) {
   let output;
-  console.log(res);
   if (err) {
     output = `<p>${err}</p>`;
   } else {
@@ -58,6 +57,22 @@ function ProcessDelete(err, res) {
   document.querySelector("#response").innerHTML = output;
 }
 
+function ProcessPatch(err, res) {
+  let output;
+  if (err) {
+    output = `<p>${err}</p>`;
+  } else {
+    const data = JSON.parse(res);
+    output = "<ul style=\"list-style:none\">";
+    output += `<li>Title: ${data.title}</li>`
+    output += `<li>Body: ${data.body}</li>`
+    output += "</ul>";
+  }
+  document.querySelector("#response").innerHTML = output;
+}
+
+
+
 function sendRequest(reqType, targetURL) {
   let data;
   switch (reqType) {
@@ -105,8 +120,8 @@ function sendRequest(reqType, targetURL) {
               name:"Professor Vickers"
       };
       NeoHttp.Patch(targetURL, data)
-      .then((resp) => ProcessPut(null,resp))
-      .catch((err) => ProcessPut(err));
+      .then((resp) => ProcessPatch(null,resp))
+      .catch((err) => ProcessPatch(err));
       break;
   }
 }
