@@ -6,4 +6,4 @@ To compleat the HTTP Library Project for CSC 3221
 Contributors
 
 * Dylan-Beppu-SPU (Github Owner)
-* Hawaiikaiboy (Dylan's personal github)
+* Dylan-Beppu (Dylan's personal github)
